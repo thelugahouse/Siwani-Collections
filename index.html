@@ -813,7 +813,8 @@
         function verifyOtpChallenge(e) {
             e.preventDefault();
             const input = document.getElementById('otpInput').value;
-            if (input === 'admin123' || input === '9860652882') {
+            // Updated Admin Password Verification
+            if (input === 'Sanjeeb@1!@#$%^&*())') {
                 isAdminLoggedIn = true;
                 closeModal('otpModal');
                 document.getElementById('otpInput').value = '';
