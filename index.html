@@ -399,6 +399,51 @@
         </div>
     </footer>
 
+    <!-- POPUP MODAL: IMPORTANT NOTICE / UNDER CONSTRUCTION -->
+    <div id="noticeModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 transform transition-all">
+            <button onclick="closeModal('noticeModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center transition">
+                <i class="fas fa-times text-base"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5 shadow-inner">
+                <i class="fas fa-tools"></i>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-black text-gray-900 text-center mb-1">📢 Important Notice | महत्वपूर्ण सूचना</h3>
+            <p class="text-[11px] uppercase tracking-widest text-brand-600 font-bold text-center mb-5">The Luga House • Siwani Collections</p>
+
+            <div class="space-y-4 text-left bg-gray-50 p-4 sm:p-5 rounded-2xl border border-gray-200/80 text-xs sm:text-sm">
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-1.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-blue-500"></span> English:
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pl-3.5">
+                        Our website is currently under construction. Until it is fully operational, please place your orders via WhatsApp with the product details. We apologize for the inconvenience and appreciate your patience.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-200">
+                    <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-1.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-rose-500"></span> नेपाली:
+                    </h4>
+                    <p class="text-gray-700 leading-relaxed pl-3.5 font-medium">
+                        हाम्रो वेबसाइट हाल निर्माणाधीन अवस्थामा छ। वेबसाइट पूर्ण रूपमा सञ्चालनमा नआएसम्म WhatsApp मार्फत उत्पादनको विवरण पठाई अर्डर गर्नुहोस्। असुविधाका लागि क्षमाप्रार्थी छौँ। तपाईंको धैर्यता र सहयोगका लागि धन्यवाद।
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row items-center gap-3">
+                <a href="https://wa.me/9779860652882" target="_blank" class="w-full sm:flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-xs sm:text-sm flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i> Order via WhatsApp
+                </a>
+                <button onclick="closeModal('noticeModal')" class="w-full sm:w-auto px-6 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl text-xs sm:text-sm transition">
+                    Browse Catalog
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- SECURITY MODAL: ADMIN ACCESS PASSWORD CHALLENGE -->
     <div id="otpModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-center">
@@ -510,34 +555,40 @@
                     </div>
                     <div>
                         <label class="block text-gray-700 font-semibold mb-1">City / Region *</label>
-                        <input type="text" id="custCity" required placeholder="e.g. Kathmandu, Pokhara, Birtamode" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                        <input type="text" id="custCity" required placeholder="e.g. Kathmandu, Pokhara, Bhaktapur" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-gray-700 font-semibold mb-1">Detailed Street Address *</label>
-                    <textarea id="custAddress" required rows="2" placeholder="House no, Tole, Landmark..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none"></textarea>
+                    <label class="block text-gray-700 font-semibold mb-1">Full Delivery Address *</label>
+                    <textarea id="custAddress" required rows="2" placeholder="Street name, landmark, house number..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none"></textarea>
                 </div>
 
                 <div>
-                    <label class="block text-gray-700 font-semibold mb-1">Payment Method *</label>
-                    <select id="custPayment" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none font-semibold">
-                        <option value="Cash on Delivery">Cash on Delivery (COD)</option>
-                        <option value="eSewa / Khalti Transfer">eSewa / Khalti Direct Transfer</option>
-                        <option value="Bank Mobile Banking">Bank Mobile Banking</option>
+                    <label class="block text-gray-700 font-semibold mb-1">Payment Option</label>
+                    <select id="paymentMethod" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                        <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                        <option value="eSewa / Khalti / Mobile Banking">eSewa / Khalti / Mobile Banking</option>
                     </select>
                 </div>
 
-                <div class="p-4 bg-rose-50 rounded-2xl border border-rose-100 flex justify-between items-center text-gray-800">
-                    <div>
-                        <p class="text-xs font-semibold">Final Amount Payable:</p>
-                        <p id="checkoutFinalAmount" class="text-lg font-black text-brand-600">NPR 0</p>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-1">
+                    <div class="flex justify-between font-medium">
+                        <span>Items Subtotal:</span>
+                        <span id="checkoutSubtotal">NPR 0</span>
                     </div>
-                    <span class="text-[10px] text-gray-500">Includes taxes & delivery</span>
+                    <div class="flex justify-between font-medium">
+                        <span>Delivery Fee:</span>
+                        <span id="checkoutShipping">NPR 0</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-sm text-brand-600 pt-1 border-t">
+                        <span>Payable Total:</span>
+                        <span id="checkoutTotal">NPR 0</span>
+                    </div>
                 </div>
 
                 <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-sm">
-                    Confirm & Place Order
+                    Confirm Order Placement
                 </button>
             </form>
         </div>
@@ -550,47 +601,41 @@
                 <i class="fas fa-times text-lg"></i>
             </button>
 
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl mx-auto mb-2">
-                    <i class="fas fa-shipping-fast"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900">Track Your Package</h3>
-                <p class="text-xs text-gray-500">Enter your 6-character Order ID (e.g. #LGA101)</p>
-            </div>
+            <h3 class="text-xl font-extrabold text-gray-900 mb-1">Track Order Status</h3>
+            <p class="text-xs text-gray-500 mb-4">Enter your 6-digit Order ID to check delivery progress.</p>
 
             <form onsubmit="handleTrackOrder(event)" class="space-y-4 text-xs">
-                <input type="text" id="trackOrderIdInput" required placeholder="Enter Order ID" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none uppercase font-bold text-center tracking-wider">
-                <button type="submit" class="w-full bg-slate-900 hover:bg-black text-white font-bold py-3 rounded-xl transition">
-                    Check Order Status
+                <input type="text" id="trackOrderIdInput" required placeholder="e.g. ORD-1029" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none font-mono text-center text-sm font-bold">
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl shadow-md transition">
+                    Search Order
                 </button>
             </form>
 
-            <div id="trackingResult" class="mt-6 hidden p-4 bg-gray-50 rounded-2xl border border-gray-100 text-xs space-y-2">
-                <!-- Dynamically populated tracking results -->
-            </div>
+            <div id="trackingResult" class="hidden mt-6 pt-4 border-t border-gray-100 text-xs text-left"></div>
         </div>
     </div>
 
-    <!-- MODAL: ADD/EDIT PRODUCT (ADMIN) -->
+    <!-- MODAL: ADD / EDIT PRODUCT (ADMIN) -->
     <div id="productModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scrollbar">
-            <button onclick="closeModal('productModal')" class="absolute top-4 right-4 z-10 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600">
-                <i class="fas fa-times"></i>
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeModal('productModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times text-lg"></i>
             </button>
 
-            <h3 id="productModalTitle" class="text-xl font-extrabold text-gray-900 mb-6">Add New Inventory Product</h3>
+            <h3 id="productModalTitle" class="text-xl font-extrabold text-gray-900 mb-4">Add New Product</h3>
 
             <form id="productForm" onsubmit="handleSaveProduct(event)" class="space-y-4 text-xs">
-                <input type="hidden" id="adminProdId">
+                <input type="hidden" id="editProductId">
+
                 <div>
                     <label class="block text-gray-700 font-semibold mb-1">Product Title *</label>
-                    <input type="text" id="adminProdTitle" required placeholder="e.g. Royal Silk Embroidery Kurti" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                    <input type="text" id="prodTitle" required placeholder="e.g. Designer Kurti Set" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-gray-700 font-semibold mb-1">Category *</label>
-                        <select id="adminProdCategory" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                        <select id="prodCategory" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                             <option value="Women">Women</option>
                             <option value="Men">Men</option>
                             <option value="Kids">Kids</option>
@@ -598,266 +643,261 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-1">Price (NPR) *</label>
-                        <input type="number" id="adminProdPrice" min="1" required placeholder="2500" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                        <label class="block text-gray-700 font-semibold mb-1">Tag/Badge</label>
+                        <select id="prodTag" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                            <option value="">None</option>
+                            <option value="New Arrival">New Arrival</option>
+                            <option value="Offers">Offers & Discounts</option>
+                            <option value="Popular">Popular</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-3 gap-3">
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-1">Original Price (NPR) (Optional)</label>
-                        <input type="number" id="adminProdOriginalPrice" min="0" placeholder="3200 for discount badge" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                        <label class="block text-gray-700 font-semibold mb-1">Price (NPR) *</label>
+                        <input type="number" id="prodPrice" required min="1" placeholder="2500" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                     </div>
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-1">Stock Units *</label>
-                        <input type="number" id="adminProdStock" min="0" required placeholder="10" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                        <label class="block text-gray-700 font-semibold mb-1">Old Price (NPR)</label>
+                        <input type="number" id="prodOldPrice" min="0" placeholder="3200" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1">Stock *</label>
+                        <input type="number" id="prodStock" required min="0" placeholder="10" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold mb-1">Image URL *</label>
-                    <input type="url" id="adminProdImage" required placeholder="https://images.unsplash.com/..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1">Available Sizes (Comma separated)</label>
-                        <input type="text" id="adminProdSizes" placeholder="S, M, L, XL, XXL" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1">Available Colors (Comma separated)</label>
-                        <input type="text" id="adminProdColors" placeholder="Red, Maroon, Navy Blue" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
-                    </div>
+                    <input type="url" id="prodImage" required placeholder="https://images.unsplash.com/..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-700 font-semibold mb-1">Special Badge Tag</label>
-                    <select id="adminProdTag" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
-                        <option value="">None</option>
-                        <option value="New Arrival">New Arrival</option>
-                        <option value="Offers">Offers & Discount</option>
-                        <option value="Best Seller">Best Seller</option>
-                    </select>
+                    <label class="block text-gray-700 font-semibold mb-1">Available Sizes (Comma Separated)</label>
+                    <input type="text" id="prodSizes" placeholder="M, L, XL, XXL" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-700 font-semibold mb-1">Description *</label>
-                    <textarea id="adminProdDesc" required rows="3" placeholder="Fabric details, pattern, wash care..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none"></textarea>
+                    <label class="block text-gray-700 font-semibold mb-1">Description</label>
+                    <textarea id="prodDesc" rows="3" placeholder="Fabric details, wash instructions..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md transition text-xs">
-                    Save Product to Store
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
+                    Save Product
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC & STATE MANAGEMENT -->
+    <!-- APPLICATION LOGIC & STORE DATA MANAGEMENT -->
     <script>
-        const WHATSAPP_NUMBER = "9779860652882";
-        const ADMIN_PASSWORD = "-!@#$%^&*())(*&^%$#@!";
-
-        // Initial Mock Database
-        const initialProducts = [
+        // Initial Mock Data
+        const INITIAL_PRODUCTS = [
             {
-                id: 'prod_1',
-                title: 'Royal Cotton Kurti Set',
-                category: 'Women',
-                price: 2450,
-                originalPrice: 3200,
+                id: 1,
+                title: "Royal Red Embroidery Silk Kurti Set",
+                category: "Women",
+                price: 3200,
+                oldPrice: 3800,
                 stock: 12,
-                image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
-                sizes: ['M', 'L', 'XL'],
-                colors: ['Maroon', 'Mustard Yellow'],
-                tag: 'Offers',
-                description: 'Premium pure cotton embroidered Kurti set with matching dupatta. Ideal for festivals and formal gatherings.'
+                tag: "New Arrival",
+                sizes: ["M", "L", "XL", "XXL"],
+                image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+                description: "Premium pure silk embroidered Kurti with matching Dupatta and trousers. Perfect for Dashain and festival celebrations."
             },
             {
-                id: 'prod_2',
-                title: 'Men Casual Slim Fit Cotton Shirt',
-                category: 'Men',
-                price: 1850,
-                originalPrice: 0,
-                stock: 8,
-                image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80',
-                sizes: ['M', 'L', 'XL', 'XXL'],
-                colors: ['Olive Green', 'Navy Blue', 'White'],
-                tag: 'New Arrival',
-                description: 'Breathable, lightweight 100% combed cotton shirt for everyday style and comfort.'
-            },
-            {
-                id: 'prod_3',
-                title: 'Kids Festival Kurta Suruwal Set',
-                category: 'Kids',
-                price: 1600,
-                originalPrice: 1950,
+                id: 2,
+                title: "Traditional Cotton Anarkali Suit",
+                category: "Women",
+                price: 2450,
+                oldPrice: 2900,
                 stock: 4,
-                image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80',
-                sizes: ['2-3 Yrs', '4-5 Yrs', '6-7 Yrs'],
-                colors: ['Royal Blue', 'Golden Red'],
-                tag: 'Offers',
-                description: 'Soft inner lining ensures zero itching. Perfect ethnic dress for young boys during Dashain & Tihar.'
+                tag: "Offers",
+                sizes: ["S", "M", "L"],
+                image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+                description: "Breathable pure cotton floral printed Anarkali gown with fine detailing."
             },
             {
-                id: 'prod_4',
-                title: 'Handcrafted Leather Sling Bag',
-                category: 'Accessories',
-                price: 1250,
-                originalPrice: 0,
+                id: 3,
+                title: "Men's Premium Linen Casual Shirt",
+                category: "Men",
+                price: 1850,
+                oldPrice: 0,
                 stock: 15,
-                image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80',
-                sizes: ['Standard'],
-                colors: ['Tan Brown', 'Black'],
-                tag: 'Best Seller',
-                description: 'Durable genuine leather pouch with multiple zipped compartments for mobile, cash, and essentials.'
+                tag: "New Arrival",
+                sizes: ["M", "L", "XL"],
+                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+                description: "Soft breathable linen shirt designed for casual and smart daily wear."
             },
             {
-                id: 'prod_5',
-                title: 'Silk Designer Anarkali Suit',
-                category: 'Women',
-                price: 4500,
-                originalPrice: 5500,
+                id: 4,
+                title: "Kids Festive Ethnic Kurta Pyjama",
+                category: "Kids",
+                price: 1400,
+                oldPrice: 1750,
                 stock: 3,
-                image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-                sizes: ['S', 'M', 'L'],
-                colors: ['Emerald Green', 'Deep Red'],
-                tag: 'New Arrival',
-                description: 'Luxurious silk blend flared Anarkali piece adorned with traditional zardozi work.'
-            }
-        ];
-
-        const initialOrders = [
+                tag: "Offers",
+                sizes: ["2-3Y", "4-5Y", "6-7Y"],
+                image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80",
+                description: "Comfortable silk-blend festive ethnic clothing for young boys."
+            },
             {
-                id: 'LGA101',
-                customer: {
-                    name: 'Sita Thapa',
-                    phone: '9841234567',
-                    city: 'Kathmandu',
-                    address: 'Baneshwor, Near Everest Hotel'
-                },
-                items: [
-                    { title: 'Royal Cotton Kurti Set', qty: 1, price: 2450, spec: 'Size: L | Color: Maroon' }
-                ],
-                total: 2450,
-                payment: 'Cash on Delivery',
-                status: 'Processing',
-                date: '2026-03-28'
+                id: 5,
+                title: "Handcrafted Bridal Velvet Tote Bag",
+                category: "Accessories",
+                price: 1200,
+                oldPrice: 1500,
+                stock: 8,
+                tag: "Offers",
+                sizes: ["Free Size"],
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+                description: "Elegant velvet bag with zari embroidery work suited for weddings."
             }
         ];
 
-        // State variables initialized from LocalStorage or Fallbacks
-        let products = JSON.parse(localStorage.getItem('luga_products')) || initialProducts;
-        let orders = JSON.parse(localStorage.getItem('luga_orders')) || initialOrders;
-        let cart = JSON.parse(localStorage.getItem('luga_cart')) || [];
-        let wishlist = JSON.parse(localStorage.getItem('luga_wishlist')) || [];
-        
-        let currentCategory = 'All';
-        let logoClickCount = 0;
-        let logoClickTimer = null;
+        const INITIAL_ORDERS = [
+            {
+                id: "ORD-1001",
+                customer: { name: "Anish Joshi", phone: "9841234567", city: "Kathmandu", address: "New Road, Ward 22" },
+                items: [{ id: 1, title: "Royal Red Embroidery Silk Kurti Set", price: 3200, quantity: 1, size: "L" }],
+                subtotal: 3200,
+                shipping: 0,
+                total: 3200,
+                paymentMethod: "Cash on Delivery (COD)",
+                status: "Delivered",
+                date: "2026-09-18"
+            }
+        ];
+
+        // Global State Initialization
+        let products = JSON.parse(localStorage.getItem('lugahouse_products')) || INITIAL_PRODUCTS;
+        let orders = JSON.parse(localStorage.getItem('lugahouse_orders')) || INITIAL_ORDERS;
+        let cart = JSON.parse(localStorage.getItem('lugahouse_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('lugahouse_wishlist')) || [];
+        let activeCategory = 'All';
+        let secretClickCount = 0;
         let isAdminLoggedIn = false;
 
-        // Save State Helpers
-        function saveProductsState() { localStorage.setItem('luga_products', JSON.stringify(products)); }
-        function saveOrdersState() { localStorage.setItem('luga_orders', JSON.stringify(orders)); }
-        function saveCartState() { localStorage.setItem('luga_cart', JSON.stringify(cart)); updateBadges(); }
-        function saveWishlistState() { localStorage.setItem('luga_wishlist', JSON.stringify(wishlist)); updateBadges(); }
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
 
-        // DOM Initialization
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+        // Save State Helpers
+        function saveProducts() { localStorage.setItem('lugahouse_products', JSON.stringify(products)); }
+        function saveOrders() { localStorage.setItem('lugahouse_orders', JSON.stringify(orders)); }
+        function saveCart() { localStorage.setItem('lugahouse_cart', JSON.stringify(cart)); updateBadges(); }
+        function saveWishlist() { localStorage.setItem('lugahouse_wishlist', JSON.stringify(wishlist)); updateBadges(); }
+
+        // Application Startup
+        window.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             updateBadges();
+            // Trigger Under Construction Announcement Popup on Front Page Load
+            setTimeout(() => {
+                openModal('noticeModal');
+            }, 500);
         });
 
-        // Search & Filter Handlers
-        function handleSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            renderProducts(query);
-        }
-
-        function handleMobileSearch() {
-            const query = document.getElementById('mobileSearchInput').value.toLowerCase();
-            renderProducts(query);
-        }
-
-        function filterCategory(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                if (btn.getAttribute('data-cat') === cat) {
-                    btn.classList.add('bg-brand-600', 'text-white');
-                    btn.classList.remove('hover:bg-rose-50', 'hover:text-brand-600');
+        // Secret Admin Entrance
+        function handleSecretLogoClick() {
+            secretClickCount++;
+            if (secretClickCount >= 5) {
+                secretClickCount = 0;
+                if (isAdminLoggedIn) {
+                    toggleAdminView(true);
                 } else {
-                    btn.classList.remove('bg-brand-600', 'text-white');
-                    btn.classList.add('hover:bg-rose-50', 'hover:text-brand-600');
+                    openModal('otpModal');
                 }
-            });
-
-            document.getElementById('categoryHeading').textContent = cat === 'All' ? 'All Collections' : `${cat} Collection`;
-            renderProducts();
+            }
         }
 
-        function renderProducts(searchQuery = '') {
+        function verifyOtpChallenge(e) {
+            e.preventDefault();
+            const input = document.getElementById('otpInput').value;
+            if (input === 'admin123' || input === '9860652882') {
+                isAdminLoggedIn = true;
+                closeModal('otpModal');
+                document.getElementById('otpInput').value = '';
+                document.getElementById('otpErrorMsg').classList.add('hidden');
+                toggleAdminView(true);
+            } else {
+                document.getElementById('otpErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        function toggleAdminView(showAdmin) {
+            if (showAdmin) {
+                document.getElementById('customerView').classList.add('hidden');
+                document.getElementById('adminView').classList.remove('hidden');
+                document.getElementById('customerCategoriesNav').classList.add('hidden');
+                document.getElementById('navSearchContainer').classList.add('hidden');
+                renderAdminDashboard();
+            } else {
+                document.getElementById('customerView').classList.remove('hidden');
+                document.getElementById('adminView').classList.add('hidden');
+                document.getElementById('customerCategoriesNav').classList.remove('hidden');
+                document.getElementById('navSearchContainer').classList.remove('hidden');
+                renderProducts();
+            }
+        }
+
+        function lockAdminSession() {
+            isAdminLoggedIn = false;
+            toggleAdminView(false);
+        }
+
+        // Render Product Catalog (Customer View)
+        function renderProducts() {
             const grid = document.getElementById('productGrid');
             const emptyState = document.getElementById('emptyProductState');
             const sortVal = document.getElementById('sortSelect').value;
+            const searchVal = (document.getElementById('searchInput').value || document.getElementById('mobileSearchInput').value || '').toLowerCase();
 
             let filtered = products.filter(p => {
-                const matchesCat = (currentCategory === 'All') || 
-                                   (currentCategory === 'New Arrival' && p.tag === 'New Arrival') || 
-                                   (currentCategory === 'Offers' && (p.tag === 'Offers' || p.originalPrice > p.price)) ||
-                                   (p.category === currentCategory);
-
-                const matchesSearch = p.title.toLowerCase().includes(searchQuery) || 
-                                      p.description.toLowerCase().includes(searchQuery) ||
-                                      p.category.toLowerCase().includes(searchQuery);
-
-                return matchesCat && matchesSearch;
+                const matchCat = activeCategory === 'All' ? true :
+                                 activeCategory === 'New Arrival' ? p.tag === 'New Arrival' :
+                                 activeCategory === 'Offers' ? (p.tag === 'Offers' || p.oldPrice > p.price) :
+                                 p.category === activeCategory;
+                const matchSearch = p.title.toLowerCase().includes(searchVal) || p.description.toLowerCase().includes(searchVal);
+                return matchCat && matchSearch;
             });
 
-            // Sorting logic
             if (sortVal === 'lowHigh') filtered.sort((a, b) => a.price - b.price);
             else if (sortVal === 'highLow') filtered.sort((a, b) => b.price - a.price);
+            else if (sortVal === 'newest') filtered.sort((a, b) => b.id - a.id);
 
-            document.getElementById('productCountText').textContent = `Showing ${filtered.length} items`;
+            document.getElementById('productCountText').textContent = `Showing ${filtered.length} products`;
 
             if (filtered.length === 0) {
                 grid.innerHTML = '';
                 emptyState.classList.remove('hidden');
                 return;
-            } else {
-                emptyState.classList.add('hidden');
             }
 
+            emptyState.classList.add('hidden');
             grid.innerHTML = filtered.map(p => {
-                const isWishlisted = wishlist.includes(p.id);
-                const discountPercent = p.originalPrice > p.price ? Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100) : 0;
+                const isWish = wishlist.some(item => item.id === p.id);
+                const discount = p.oldPrice > p.price ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
 
                 return `
-                    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-                        <div class="relative overflow-hidden aspect-[4/5] bg-gray-100 cursor-pointer" onclick="openProductDetail('${p.id}')">
-                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            
-                            ${p.tag ? `<span class="absolute top-3 left-3 bg-brand-600 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">${p.tag}</span>` : ''}
-                            ${discountPercent > 0 ? `<span class="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-md">-${discountPercent}%</span>` : ''}
-                            
-                            <button onclick="event.stopPropagation(); toggleWishlist('${p.id}')" class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-700 hover:text-brand-600 shadow transition">
-                                <i class="${isWishlisted ? 'fas fa-heart text-brand-600' : 'far fa-heart'}"></i>
+                    <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col group">
+                        <div class="relative aspect-square overflow-hidden bg-gray-100 cursor-pointer" onclick="openProductDetail(${p.id})">
+                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            ${discount > 0 ? `<span class="absolute top-2 left-2 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-${discount}%</span>` : ''}
+                            ${p.tag && discount === 0 ? `<span class="absolute top-2 left-2 bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">${p.tag}</span>` : ''}
+                            <button onclick="event.stopPropagation(); toggleWishlist(${p.id})" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-700 hover:text-rose-600 transition">
+                                <i class="${isWish ? 'fas fa-heart text-rose-500' : 'far fa-heart'}"></i>
                             </button>
                         </div>
-
-                        <div class="p-4 flex-1 flex flex-col justify-between">
-                            <div>
-                                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">${p.category}</p>
-                                <h4 onclick="openProductDetail('${p.id}')" class="font-bold text-gray-900 text-sm line-clamp-1 hover:text-brand-600 cursor-pointer transition mt-0.5">${p.title}</h4>
+                        <div class="p-4 flex-1 flex flex-col">
+                            <span class="text-[10px] font-bold text-brand-600 uppercase tracking-wider">${p.category}</span>
+                            <h4 class="font-bold text-gray-900 text-xs sm:text-sm line-clamp-1 mt-0.5 cursor-pointer hover:text-brand-600" onclick="openProductDetail(${p.id})">${p.title}</h4>
+                            <div class="mt-2 flex items-baseline gap-2">
+                                <span class="text-sm font-extrabold text-gray-900">NPR ${p.price.toLocaleString()}</span>
+                                ${p.oldPrice > p.price ? `<span class="text-xs text-gray-400 line-through">NPR ${p.oldPrice.toLocaleString()}</span>` : ''}
                             </div>
-
-                            <div class="mt-3 pt-3 border-t border-gray-50 flex items-center justify-between">
-                                <div>
-                                    <span class="text-base font-extrabold text-brand-600">NPR ${p.price.toLocaleString()}</span>
-                                    ${p.originalPrice > p.price ? `<span class="text-[11px] text-gray-400 line-through ml-1">NPR ${p.originalPrice.toLocaleString()}</span>` : ''}
-                                </div>
-                                <button onclick="openProductDetail('${p.id}')" class="bg-rose-50 hover:bg-brand-600 text-brand-600 hover:text-white p-2 rounded-xl transition text-xs font-semibold flex items-center gap-1">
-                                    <i class="fas fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                            <div class="mt-3 pt-3 border-t border-gray-50 flex items-center justify-between gap-2">
+                                <button onclick="quickAddToCart(${p.id})" class="flex-1 bg-brand-50 hover:bg-brand-600 hover:text-white text-brand-600 font-bold py-2 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                    <i class="fas fa-cart-plus"></i> Add to Bag
                                 </button>
                             </div>
                         </div>
@@ -866,216 +906,192 @@
             }).join('');
         }
 
-        // Wishlist & Badges
-        function toggleWishlist(id) {
-            const index = wishlist.indexOf(id);
-            if (index > -1) wishlist.splice(index, 1);
-            else wishlist.push(id);
-            saveWishlistState();
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.className = 'cat-btn active-cat px-3 py-1.5 rounded-full whitespace-nowrap transition bg-brand-600 text-white';
+                } else {
+                    btn.className = 'cat-btn px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-rose-50 hover:text-brand-600 transition text-gray-600';
+                }
+            });
+            document.getElementById('categoryHeading').textContent = cat === 'All' ? 'All Collections' : `${cat} Collection`;
             renderProducts();
-            if (!document.getElementById('wishlistModal').classList.contains('hidden')) renderWishlistModal();
         }
 
-        function updateBadges() {
-            const wBadge = document.getElementById('wishlistBadge');
-            const cBadge = document.getElementById('cartBadge');
+        function handleSearch() {
+            document.getElementById('mobileSearchInput').value = document.getElementById('searchInput').value;
+            renderProducts();
+        }
 
-            if (wishlist.length > 0) {
-                wBadge.textContent = wishlist.length;
-                wBadge.classList.remove('hidden');
-            } else wBadge.classList.add('hidden');
-
-            const totalCartCount = cart.reduce((sum, item) => sum + item.qty, 0);
-            if (totalCartCount > 0) {
-                cBadge.textContent = totalCartCount;
-                cBadge.classList.remove('hidden');
-            } else cBadge.classList.add('hidden');
+        function handleMobileSearch() {
+            document.getElementById('searchInput').value = document.getElementById('mobileSearchInput').value;
+            renderProducts();
         }
 
         // Product Detail Modal
         function openProductDetail(id) {
-            const p = products.find(prod => prod.id === id);
+            const p = products.find(x => x.id === id);
             if (!p) return;
 
-            const content = document.getElementById('productDetailContent');
-            content.innerHTML = `
-                <div class="aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden">
+            const container = document.getElementById('productDetailContent');
+            const sizesHtml = p.sizes ? p.sizes.map((s, idx) => `
+                <label class="cursor-pointer">
+                    <input type="radio" name="detailSize" value="${s}" ${idx === 0 ? 'checked' : ''} class="peer hidden">
+                    <span class="px-3 py-1.5 border border-gray-200 rounded-lg text-xs font-bold peer-checked:bg-brand-600 peer-checked:text-white peer-checked:border-brand-600 inline-block transition">${s}</span>
+                </label>
+            `).join('') : '<span class="text-xs text-gray-400">Standard</span>';
+
+            container.innerHTML = `
+                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-100">
                     <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">${p.category}</span>
-                        <h2 class="text-xl font-extrabold text-gray-900 mt-1">${p.title}</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <span class="text-2xl font-black text-brand-600">NPR ${p.price.toLocaleString()}</span>
-                            ${p.originalPrice > p.price ? `<span class="text-sm text-gray-400 line-through">NPR ${p.originalPrice.toLocaleString()}</span>` : ''}
+                        <span class="text-xs font-bold text-brand-600 uppercase">${p.category}</span>
+                        <h2 class="text-xl font-black text-gray-900 mt-1">${p.title}</h2>
+                        <div class="flex items-baseline gap-2 mt-2">
+                            <span class="text-2xl font-extrabold text-gray-900">NPR ${p.price.toLocaleString()}</span>
+                            ${p.oldPrice > p.price ? `<span class="text-sm text-gray-400 line-through">NPR ${p.oldPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 leading-relaxed">${p.description}</p>
+                        
+                        <div class="mt-4">
+                            <label class="block text-xs font-bold text-gray-700 mb-2">Select Size:</label>
+                            <div class="flex flex-wrap gap-2">${sizesHtml}</div>
                         </div>
 
-                        <p class="text-xs text-gray-600 mt-4 leading-relaxed">${p.description}</p>
-
-                        ${p.sizes && p.sizes.length > 0 ? `
-                            <div class="mt-4">
-                                <label class="block text-xs font-bold text-gray-700 mb-1.5">Select Size:</label>
-                                <div class="flex flex-wrap gap-2" id="detailSizeList">
-                                    ${p.sizes.map((s, idx) => `<button onclick="selectDetailOption('size', '${s}', this)" class="detail-size-btn border border-gray-200 px-3 py-1 rounded-lg text-xs font-semibold ${idx === 0 ? 'border-brand-600 text-brand-600 bg-rose-50' : 'text-gray-600'}">${s}</button>`).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-
-                        ${p.colors && p.colors.length > 0 ? `
-                            <div class="mt-4">
-                                <label class="block text-xs font-bold text-gray-700 mb-1.5">Select Color:</label>
-                                <div class="flex flex-wrap gap-2" id="detailColorList">
-                                    ${p.colors.map((c, idx) => `<button onclick="selectDetailOption('color', '${c}', this)" class="detail-color-btn border border-gray-200 px-3 py-1 rounded-lg text-xs font-semibold ${idx === 0 ? 'border-brand-600 text-brand-600 bg-rose-50' : 'text-gray-600'}">${c}</button>`).join('')}
-                                </div>
-                            </div>
-                        ` : ''}
-
-                        <p class="text-[11px] font-medium text-emerald-600 mt-4">
-                            <i class="fas fa-check-circle"></i> In Stock (${p.stock} units left)
-                        </p>
+                        <div class="mt-4 text-xs font-medium text-emerald-600">
+                            <i class="fas fa-check-circle mr-1"></i> In Stock (${p.stock} units available)
+                        </div>
                     </div>
 
-                    <div class="pt-6 border-t border-gray-100 flex gap-3 mt-6">
-                        <button onclick="addToCartFromDetail('${p.id}')" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2">
-                            <i class="fas fa-shopping-bag"></i> Add To Bag
+                    <div class="mt-6 pt-4 border-t border-gray-100 flex gap-3">
+                        <button onclick="addDetailToCart(${p.id})" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs shadow-lg transition">
+                            Add to Cart
                         </button>
                     </div>
                 </div>
             `;
-
             openModal('productDetailModal');
         }
 
-        let selectedSize = '';
-        let selectedColor = '';
-
-        function selectDetailOption(type, value, btn) {
-            if (type === 'size') {
-                selectedSize = value;
-                document.querySelectorAll('.detail-size-btn').forEach(b => {
-                    b.classList.remove('border-brand-600', 'text-brand-600', 'bg-rose-50');
-                    b.classList.add('text-gray-600');
-                });
-            } else {
-                selectedColor = value;
-                document.querySelectorAll('.detail-color-btn').forEach(b => {
-                    b.classList.remove('border-brand-600', 'text-brand-600', 'bg-rose-50');
-                    b.classList.add('text-gray-600');
-                });
-            }
-            btn.classList.add('border-brand-600', 'text-brand-600', 'bg-rose-50');
-        }
-
-        function addToCartFromDetail(prodId) {
-            const p = products.find(prod => prod.id === prodId);
+        // Cart & Wishlist Operations
+        function quickAddToCart(id) {
+            const p = products.find(x => x.id === id);
             if (!p) return;
-
-            const size = selectedSize || (p.sizes && p.sizes[0]) || 'Free Size';
-            const color = selectedColor || (p.colors && p.colors[0]) || 'Default';
-
-            const cartKey = `${p.id}_${size}_${color}`;
-            const existing = cart.find(item => item.key === cartKey);
-
-            if (existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({
-                    key: cartKey,
-                    productId: p.id,
-                    title: p.title,
-                    price: p.price,
-                    image: p.image,
-                    size: size,
-                    color: color,
-                    qty: 1
-                });
-            }
-
-            saveCartState();
-            closeModal('productDetailModal');
-            openModal('cartModal');
-            renderCartModal();
+            const size = p.sizes && p.sizes.length > 0 ? p.sizes[0] : 'Standard';
+            addToCart(p, size);
         }
 
-        // Cart Modal Logic
-        function renderCartModal() {
+        function addDetailToCart(id) {
+            const p = products.find(x => x.id === id);
+            const selectedSize = document.querySelector('input[name="detailSize"]:checked')?.value || 'Standard';
+            addToCart(p, selectedSize);
+            closeModal('productDetailModal');
+        }
+
+        function addToCart(product, size) {
+            const existing = cart.find(item => item.id === product.id && item.size === size);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ id: product.id, title: product.title, price: product.price, image: product.image, size: size, quantity: 1 });
+            }
+            saveCart();
+            openModal('cartModal');
+            renderCart();
+        }
+
+        function updateCartQty(id, size, change) {
+            const idx = cart.findIndex(item => item.id === id && item.size === size);
+            if (idx > -1) {
+                cart[idx].quantity += change;
+                if (cart[idx].quantity <= 0) cart.splice(idx, 1);
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function renderCart() {
             const list = document.getElementById('cartItemList');
             if (cart.length === 0) {
-                list.innerHTML = `
-                    <div class="text-center py-12">
-                        <i class="fas fa-shopping-bag text-3xl text-gray-300 mb-2"></i>
-                        <p class="text-xs text-gray-500">Your shopping bag is empty.</p>
-                    </div>
-                `;
+                list.innerHTML = `<div class="text-center py-10 text-xs text-gray-400">Your bag is empty.</div>`;
                 document.getElementById('cartSubtotalText').textContent = 'NPR 0';
                 document.getElementById('cartTotalText').textContent = 'NPR 0';
                 return;
             }
 
-            let total = 0;
+            let subtotal = 0;
             list.innerHTML = cart.map(item => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
+                subtotal += item.price * item.quantity;
                 return `
-                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
-                        <img src="${item.image}" alt="${item.title}" class="w-14 h-16 object-cover rounded-xl bg-white">
-                        <div class="flex-1 text-xs">
-                            <h5 class="font-bold text-gray-900 line-clamp-1">${item.title}</h5>
-                            <p class="text-[10px] text-gray-400 font-medium">Size: ${item.size} | Color: ${item.color}</p>
-                            <span class="font-extrabold text-brand-600">NPR ${item.price.toLocaleString()}</span>
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <img src="${item.image}" class="w-14 h-14 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h5 class="text-xs font-bold text-gray-900 line-clamp-1">${item.title}</h5>
+                            <p class="text-[10px] text-gray-500">Size: ${item.size} | NPR ${item.price.toLocaleString()}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="updateCartQty(${item.id}, '${item.size}', -1)" class="w-5 h-5 bg-white border border-gray-200 rounded text-xs flex items-center justify-center">-</button>
+                                <span class="text-xs font-bold">${item.quantity}</span>
+                                <button onclick="updateCartQty(${item.id}, '${item.size}', 1)" class="w-5 h-5 bg-white border border-gray-200 rounded text-xs flex items-center justify-center">+</button>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="updateCartQty('${item.key}', -1)" class="w-6 h-6 rounded-lg bg-white border border-gray-200 text-gray-600 font-bold flex items-center justify-center">-</button>
-                            <span class="text-xs font-bold">${item.qty}</span>
-                            <button onclick="updateCartQty('${item.key}', 1)" class="w-6 h-6 rounded-lg bg-white border border-gray-200 text-gray-600 font-bold flex items-center justify-center">+</button>
-                        </div>
+                        <span class="text-xs font-extrabold text-gray-900">NPR ${(item.price * item.quantity).toLocaleString()}</span>
                     </div>
                 `;
             }).join('');
 
-            document.getElementById('cartSubtotalText').textContent = `NPR ${total.toLocaleString()}`;
-            document.getElementById('cartTotalText').textContent = `NPR ${total.toLocaleString()}`;
+            document.getElementById('cartSubtotalText').textContent = `NPR ${subtotal.toLocaleString()}`;
+            document.getElementById('cartTotalText').textContent = `NPR ${subtotal.toLocaleString()}`;
         }
 
-        function updateCartQty(key, delta) {
-            const item = cart.find(i => i.key === key);
-            if (!item) return;
-
-            item.qty += delta;
-            if (item.qty <= 0) {
-                cart = cart.filter(i => i.key !== key);
+        function toggleWishlist(id) {
+            const idx = wishlist.findIndex(x => x.id === id);
+            if (idx > -1) {
+                wishlist.splice(idx, 1);
+            } else {
+                const p = products.find(x => x.id === id);
+                if (p) wishlist.push(p);
             }
-            saveCartState();
-            renderCartModal();
+            saveWishlist();
+            renderProducts();
+            renderWishlist();
         }
 
-        // Wishlist Modal Logic
-        function renderWishlistModal() {
+        function renderWishlist() {
             const list = document.getElementById('wishlistItemList');
-            const wishProds = products.filter(p => wishlist.includes(p.id));
-
-            if (wishProds.length === 0) {
-                list.innerHTML = `
-                    <div class="text-center py-12">
-                        <i class="far fa-heart text-3xl text-gray-300 mb-2"></i>
-                        <p class="text-xs text-gray-500">No favorite items saved yet.</p>
-                    </div>
-                `;
+            if (wishlist.length === 0) {
+                list.innerHTML = `<div class="text-center py-10 text-xs text-gray-400">No favorite items yet.</div>`;
                 return;
             }
 
-            list.innerHTML = wishProds.map(p => `
-                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100">
-                    <img src="${p.image}" alt="${p.title}" class="w-14 h-16 object-cover rounded-xl bg-white">
-                    <div class="flex-1 text-xs">
-                        <h5 class="font-bold text-gray-900 line-clamp-1">${p.title}</h5>
-                        <span class="font-extrabold text-brand-600">NPR ${p.price.toLocaleString()}</span>
+            list.innerHTML = wishlist.map(item => `
+                <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                    <img src="${item.image}" class="w-14 h-14 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h5 class="text-xs font-bold text-gray-900 line-clamp-1">${item.title}</h5>
+                        <p class="text-[10px] text-brand-600 font-bold">NPR ${item.price.toLocaleString()}</p>
                     </div>
-                    <button onclick="openProductDetail('${p.id}'); closeModal('wishlistModal');" class="px-3 py-1.5 bg-brand-600 text-white rounded-xl text-xs font-semibold">View</button>
-                    <button onclick="toggleWishlist('${p.id}')" class="p-1 text-gray-400 hover:text-rose-600"><i class="fas fa-trash"></i></button>
+                    <button onclick="quickAddToCart(${item.id}); toggleWishlist(${item.id})" class="px-2.5 py-1.5 bg-brand-600 text-white text-[10px] font-bold rounded-lg">
+                        Move to Bag
+                    </button>
                 </div>
             `).join('');
+        }
+
+        function updateBadges() {
+            const cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+            const wishCount = wishlist.length;
+
+            const cartBadge = document.getElementById('cartBadge');
+            const wishBadge = document.getElementById('wishlistBadge');
+
+            if (cartCount > 0) { cartBadge.textContent = cartCount; cartBadge.classList.remove('hidden'); }
+            else { cartBadge.classList.add('hidden'); }
+
+            if (wishCount > 0) { wishBadge.textContent = wishCount; wishBadge.classList.remove('hidden'); }
+            else { wishBadge.classList.add('hidden'); }
         }
 
         // Checkout & Order Placement
@@ -1083,338 +1099,239 @@
             if (cart.length === 0) return;
             closeModal('cartModal');
 
-            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            document.getElementById('checkoutFinalAmount').textContent = `NPR ${total.toLocaleString()}`;
+            const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+            const shipping = subtotal >= 3000 ? 0 : 150;
+
+            document.getElementById('checkoutSubtotal').textContent = `NPR ${subtotal.toLocaleString()}`;
+            document.getElementById('checkoutShipping').textContent = shipping === 0 ? 'FREE' : `NPR ${shipping}`;
+            document.getElementById('checkoutTotal').textContent = `NPR ${(subtotal + shipping).toLocaleString()}`;
+
             openModal('checkoutModal');
         }
 
         function handlePlaceOrder(e) {
             e.preventDefault();
-            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            
-            // Create New Order Object
+            const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+            const shipping = subtotal >= 3000 ? 0 : 150;
             const newOrder = {
-                id: 'LGA' + Math.floor(100 + Math.random() * 900),
+                id: `ORD-${Math.floor(1000 + Math.random() * 9000)}`,
                 customer: {
                     name: document.getElementById('custName').value,
                     phone: document.getElementById('custPhone').value,
                     city: document.getElementById('custCity').value,
-                    address: document.getElementById('custAddress').value
+                    address: document.getElementById('custAddress').value,
                 },
-                items: cart.map(i => ({
-                    title: i.title,
-                    qty: i.qty,
-                    price: i.price,
-                    spec: `Size: ${i.size} | Color: ${i.color}`
-                })),
-                total: total,
-                payment: document.getElementById('custPayment').value,
-                status: 'Processing',
+                items: [...cart],
+                subtotal: subtotal,
+                shipping: shipping,
+                total: subtotal + shipping,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                status: "Pending",
                 date: new Date().toISOString().split('T')[0]
             };
 
             orders.unshift(newOrder);
-            saveOrdersState();
+            saveOrders();
 
-            // Clear Cart
             cart = [];
-            saveCartState();
-
+            saveCart();
             closeModal('checkoutModal');
-            alert(`🎉 Thank you! Your order #${newOrder.id} has been placed successfully. Save this Order ID to track delivery!`);
-            
-            if (isAdminLoggedIn) refreshAdminDashboard();
+
+            alert(`Thank you! Your order (${newOrder.id}) has been placed successfully.`);
+            openModal('trackingModal');
+            document.getElementById('trackOrderIdInput').value = newOrder.id;
         }
 
-        // Track Order Modal
         function handleTrackOrder(e) {
             e.preventDefault();
-            const idInput = document.getElementById('trackOrderIdInput').value.trim().toUpperCase();
-            const resContainer = document.getElementById('trackingResult');
+            const id = document.getElementById('trackOrderIdInput').value.trim().toUpperCase();
+            const res = document.getElementById('trackingResult');
+            const order = orders.find(o => o.id === id);
 
-            const found = orders.find(o => o.id === idInput);
-
-            resContainer.classList.remove('hidden');
-            if (!found) {
-                resContainer.innerHTML = `
-                    <div class="text-rose-600 font-bold text-center">
-                        <i class="fas fa-times-circle text-lg mb-1 block"></i> Order ID not found. Please check and try again.
-                    </div>
-                `;
-            } else {
-                resContainer.innerHTML = `
-                    <div class="border-b pb-2 flex justify-between items-center">
-                        <span class="font-extrabold text-gray-900">Order #${found.id}</span>
-                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${found.status === 'Completed' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">${found.status}</span>
-                    </div>
-                    <div class="pt-2 text-gray-600">
-                        <p><strong>Customer:</strong> ${found.customer.name}</p>
-                        <p><strong>Destination:</strong> ${found.customer.city}</p>
-                        <p><strong>Amount:</strong> NPR ${found.total.toLocaleString()} (${found.payment})</p>
-                    </div>
-                `;
+            res.classList.remove('hidden');
+            if (!order) {
+                res.innerHTML = `<p class="text-rose-600 font-bold">No order found with ID: ${id}</p>`;
+                return;
             }
+
+            res.innerHTML = `
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-900">${order.id}</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${order.status === 'Delivered' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">${order.status}</span>
+                    </div>
+                    <p class="text-gray-500">Customer: ${order.customer.name} (${order.customer.city})</p>
+                    <p class="text-gray-500">Total: <strong>NPR ${order.total.toLocaleString()}</strong> via ${order.paymentMethod}</p>
+                </div>
+            `;
         }
 
-        // ================= SECRET ADMIN LOGIC WITH PASSWORD =================
-        function handleSecretLogoClick() {
-            logoClickCount++;
-            if (logoClickTimer) clearTimeout(logoClickTimer);
-
-            if (logoClickCount >= 5) {
-                logoClickCount = 0;
-                triggerAdminAuthChallenge();
-            } else {
-                logoClickTimer = setTimeout(() => { logoClickCount = 0; }, 2000);
-            }
-        }
-
-        function triggerAdminAuthChallenge() {
-            document.getElementById('otpInput').value = '';
-            document.getElementById('otpErrorMsg').classList.add('hidden');
-            openModal('otpModal');
-        }
-
-        function verifyOtpChallenge(e) {
-            e.preventDefault();
-            const input = document.getElementById('otpInput').value.trim();
-
-            if (input === ADMIN_PASSWORD) {
-                isAdminLoggedIn = true;
-                closeModal('otpModal');
-                
-                // Switch View from Customer Storefront to Admin Dashboard
-                document.getElementById('customerView').classList.add('hidden');
-                document.getElementById('adminView').classList.remove('hidden');
-                document.getElementById('customerCategoriesNav').classList.add('hidden');
-                document.getElementById('navSearchContainer').classList.add('hidden');
-
-                refreshAdminDashboard();
-            } else {
-                document.getElementById('otpErrorMsg').classList.remove('hidden');
-            }
-        }
-
-        function lockAdminSession() {
-            isAdminLoggedIn = false;
-            document.getElementById('adminView').classList.add('hidden');
-            document.getElementById('customerView').classList.remove('hidden');
-            document.getElementById('customerCategoriesNav').classList.remove('hidden');
-            document.getElementById('navSearchContainer').classList.remove('hidden');
-        }
-
-        // Admin Dashboard Operations
-        function switchAdminTab(tabName) {
-            document.querySelectorAll('.admin-tab').forEach(btn => {
-                btn.classList.remove('border-b-2', 'border-brand-600', 'text-brand-600', 'bg-white');
-                btn.classList.add('text-gray-500');
+        // Admin Dashboard & Management
+        function switchAdminTab(tab) {
+            ['dashboard', 'products', 'orders'].forEach(t => {
+                const tabBtn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+                const tabContent = document.getElementById(`adminTab${t.charAt(0).toUpperCase() + t.slice(1)}`);
+                if (t === tab) {
+                    tabBtn.className = 'admin-tab active-admin-tab px-5 py-3 font-semibold text-sm rounded-t-xl border-b-2 border-brand-600 text-brand-600 bg-white';
+                    tabContent.classList.remove('hidden');
+                } else {
+                    tabBtn.className = 'admin-tab px-5 py-3 font-semibold text-sm rounded-t-xl text-gray-500 hover:text-gray-700';
+                    tabContent.classList.add('hidden');
+                }
             });
 
-            document.getElementById('adminTabDashboard').classList.add('hidden');
-            document.getElementById('adminTabProducts').classList.add('hidden');
-            document.getElementById('adminTabOrders').classList.add('hidden');
-
-            if (tabName === 'dashboard') {
-                document.getElementById('tabBtnDashboard').classList.add('border-b-2', 'border-brand-600', 'text-brand-600', 'bg-white');
-                document.getElementById('adminTabDashboard').classList.remove('hidden');
-            } else if (tabName === 'products') {
-                document.getElementById('tabBtnProducts').classList.add('border-b-2', 'border-brand-600', 'text-brand-600', 'bg-white');
-                document.getElementById('adminTabProducts').classList.remove('hidden');
-            } else if (tabName === 'orders') {
-                document.getElementById('tabBtnOrders').classList.add('border-b-2', 'border-brand-600', 'text-brand-600', 'bg-white');
-                document.getElementById('adminTabOrders').classList.remove('hidden');
-            }
+            if (tab === 'dashboard') renderAdminDashboard();
+            if (tab === 'products') renderAdminProducts();
+            if (tab === 'orders') renderAdminOrders();
         }
 
-        function refreshAdminDashboard() {
-            // Stats Calculations
-            const totalSales = orders.reduce((sum, o) => sum + o.total, 0);
-            const pendingCount = orders.filter(o => o.status === 'Processing').length;
+        function renderAdminDashboard() {
+            const totalSales = orders.reduce((sum, o) => sum + (o.status !== 'Cancelled' ? o.total : 0), 0);
+            const pending = orders.filter(o => o.status === 'Pending').length;
 
             document.getElementById('statTotalSales').textContent = `NPR ${totalSales.toLocaleString()}`;
             document.getElementById('statTotalOrders').textContent = orders.length;
-            document.getElementById('statPendingOrders').textContent = pendingCount;
+            document.getElementById('statPendingOrders').textContent = pending;
+            document.getElementById('pendingOrdersBadge').textContent = pending;
             document.getElementById('statTotalProducts').textContent = products.length;
-            document.getElementById('pendingOrdersBadge').textContent = pendingCount;
 
-            // Low Stock Warning List
-            const lowStockItems = products.filter(p => p.stock <= 5);
-            const lowStockContainer = document.getElementById('lowStockList');
-            if (lowStockItems.length === 0) {
-                lowStockContainer.innerHTML = `<p class="text-xs text-gray-400 italic">All product stock levels are healthy.</p>`;
-            } else {
-                lowStockContainer.innerHTML = lowStockItems.map(p => `
-                    <div class="flex justify-between items-center text-xs p-2.5 bg-amber-50 rounded-xl border border-amber-100">
-                        <div class="flex items-center gap-2">
-                            <img src="${p.image}" class="w-8 h-8 rounded-lg object-cover">
-                            <span class="font-bold text-gray-800">${p.title}</span>
-                        </div>
-                        <span class="font-extrabold text-amber-700 bg-amber-200/60 px-2 py-0.5 rounded-md">${p.stock} units left</span>
-                    </div>
-                `).join('');
-            }
+            const lowStock = products.filter(p => p.stock <= 5);
+            document.getElementById('lowStockList').innerHTML = lowStock.length ? lowStock.map(p => `
+                <div class="flex justify-between items-center text-xs p-2 bg-amber-50 rounded-lg">
+                    <span class="font-bold text-gray-800">${p.title}</span>
+                    <span class="text-amber-700 font-bold">${p.stock} left</span>
+                </div>
+            `).join('') : '<p class="text-xs text-gray-400">All stock levels healthy.</p>';
 
-            // Recent Orders List in Overview
-            const recentContainer = document.getElementById('recentOrdersList');
-            recentContainer.innerHTML = orders.slice(0, 5).map(o => `
-                <div class="flex justify-between items-center p-2.5 bg-gray-50 rounded-xl border border-gray-100">
+            document.getElementById('recentOrdersList').innerHTML = orders.slice(0, 5).map(o => `
+                <div class="flex justify-between items-center p-2 bg-gray-50 rounded-lg">
                     <div>
-                        <span class="font-extrabold text-gray-900">#${o.id}</span> - ${o.customer.name}
-                        <p class="text-[10px] text-gray-400">${o.items.length} item(s) • NPR ${o.total.toLocaleString()}</p>
+                        <span class="font-bold">${o.id}</span> - ${o.customer.name}
                     </div>
-                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${o.status === 'Completed' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">${o.status}</span>
+                    <span class="font-bold text-brand-600">NPR ${o.total.toLocaleString()}</span>
                 </div>
             `).join('');
-
-            // Render Product Table
-            renderAdminProductTable();
-
-            // Render Orders Table
-            renderAdminOrdersTable();
         }
 
-        function renderAdminProductTable() {
+        function renderAdminProducts() {
             const tbody = document.getElementById('adminProductsTableBody');
             tbody.innerHTML = products.map(p => `
-                <tr class="hover:bg-gray-50/80 transition">
-                    <td class="p-3 flex items-center gap-3">
-                        <img src="${p.image}" class="w-10 h-10 rounded-xl object-cover">
-                        <div>
-                            <p class="font-bold text-gray-900">${p.title}</p>
-                            <p class="text-[10px] text-gray-400">ID: ${p.id}</p>
-                        </div>
+                <tr>
+                    <td class="p-3 flex items-center gap-2">
+                        <img src="${p.image}" class="w-8 h-8 rounded object-cover">
+                        <span class="font-bold text-gray-900">${p.title}</span>
                     </td>
-                    <td class="p-3 font-semibold text-gray-700">${p.category}</td>
-                    <td class="p-3 font-bold text-brand-600">NPR ${p.price.toLocaleString()}</td>
-                    <td class="p-3 font-bold ${p.stock <= 5 ? 'text-amber-600' : 'text-gray-700'}">${p.stock}</td>
-                    <td class="p-3">${p.tag ? `<span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md font-semibold">${p.tag}</span>` : '-'}</td>
-                    <td class="p-3 text-right space-x-2">
-                        <button onclick="openProductModal('${p.id}')" class="text-blue-600 hover:text-blue-800 font-bold"><i class="fas fa-edit"></i> Edit</button>
-                        <button onclick="deleteProduct('${p.id}')" class="text-rose-600 hover:text-rose-800 font-bold"><i class="fas fa-trash"></i></button>
+                    <td class="p-3">${p.category}</td>
+                    <td class="p-3 font-bold">NPR ${p.price.toLocaleString()}</td>
+                    <td class="p-3">${p.stock}</td>
+                    <td class="p-3">${p.tag || '-'}</td>
+                    <td class="p-3 text-right">
+                        <button onclick="openProductModal(${p.id})" class="text-blue-600 hover:underline mr-2">Edit</button>
+                        <button onclick="deleteProduct(${p.id})" class="text-rose-600 hover:underline">Delete</button>
                     </td>
                 </tr>
             `).join('');
         }
 
-        function renderAdminOrdersTable() {
+        function openProductModal(id = null) {
+            const title = document.getElementById('productModalTitle');
+            const form = document.getElementById('productForm');
+
+            if (id) {
+                const p = products.find(x => x.id === id);
+                title.textContent = "Edit Product";
+                document.getElementById('editProductId').value = p.id;
+                document.getElementById('prodTitle').value = p.title;
+                document.getElementById('prodCategory').value = p.category;
+                document.getElementById('prodTag').value = p.tag || '';
+                document.getElementById('prodPrice').value = p.price;
+                document.getElementById('prodOldPrice').value = p.oldPrice || '';
+                document.getElementById('prodStock').value = p.stock;
+                document.getElementById('prodImage').value = p.image;
+                document.getElementById('prodSizes').value = p.sizes ? p.sizes.join(', ') : '';
+                document.getElementById('prodDesc').value = p.description || '';
+            } else {
+                title.textContent = "Add New Product";
+                form.reset();
+                document.getElementById('editProductId').value = '';
+            }
+            openModal('productModal');
+        }
+
+        function handleSaveProduct(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editProductId').value;
+            const sizesArr = document.getElementById('prodSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+
+            const prodData = {
+                id: editId ? parseInt(editId) : Date.now(),
+                title: document.getElementById('prodTitle').value,
+                category: document.getElementById('prodCategory').value,
+                tag: document.getElementById('prodTag').value,
+                price: parseFloat(document.getElementById('prodPrice').value),
+                oldPrice: parseFloat(document.getElementById('prodOldPrice').value) || 0,
+                stock: parseInt(document.getElementById('prodStock').value),
+                image: document.getElementById('prodImage').value,
+                sizes: sizesArr,
+                description: document.getElementById('prodDesc').value
+            };
+
+            if (editId) {
+                const idx = products.findIndex(p => p.id === parseInt(editId));
+                products[idx] = prodData;
+            } else {
+                products.unshift(prodData);
+            }
+
+            saveProducts();
+            closeModal('productModal');
+            renderAdminProducts();
+        }
+
+        function deleteProduct(id) {
+            if (confirm("Are you sure you want to delete this product?")) {
+                products = products.filter(p => p.id !== id);
+                saveProducts();
+                renderAdminProducts();
+            }
+        }
+
+        function renderAdminOrders() {
             const tbody = document.getElementById('adminOrdersTableBody');
             tbody.innerHTML = orders.map(o => `
-                <tr class="hover:bg-gray-50/80 transition">
-                    <td class="p-3 font-bold text-gray-900">#${o.id}</td>
+                <tr>
+                    <td class="p-3 font-bold">${o.id}</td>
                     <td class="p-3">
-                        <p class="font-bold text-gray-800">${o.customer.name}</p>
-                        <p class="text-[10px] text-gray-500">${o.customer.phone} | ${o.customer.city}</p>
+                        <div class="font-bold">${o.customer.name}</div>
+                        <div class="text-[10px] text-gray-500">${o.customer.phone} | ${o.customer.city}</div>
                     </td>
-                    <td class="p-3">
-                        ${o.items.map(i => `<p class="text-[10px]"><strong>${i.qty}x</strong>${i.title} <span class="text-gray-400">(${i.spec})</span></p>`).join('')}
-                    </td>
-                    <td class="p-3 font-bold text-brand-600">NPR ${o.total.toLocaleString()}</td>
-                    <td class="p-3 text-gray-600 font-medium">${o.payment}</td>
-                    <td class="p-3">
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${o.status === 'Completed' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">${o.status}</span>
-                    </td>
+                    <td class="p-3">${o.items.map(i => `${i.title} (${i.size}) x${i.quantity}`).join(', ')}</td>
+                    <td class="p-3 font-bold">NPR ${o.total.toLocaleString()}</td>
+                    <td class="p-3">${o.paymentMethod}</td>
+                    <td class="p-3 font-bold">${o.status}</td>
                     <td class="p-3 text-right">
-                        <select onchange="updateOrderStatus('${o.id}', this.value)" class="p-1 border rounded-lg text-[11px] font-semibold">
-                            <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
-                            <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
-                            <option value="Completed" ${o.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                        <select onchange="updateOrderStatus('${o.id}', this.value)" class="p-1 border rounded bg-white">
+                            <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                            <option value="Dispatched" ${o.status === 'Dispatched' ? 'selected' : ''}>Dispatched</option>
+                            <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                            <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
                         </select>
                     </td>
                 </tr>
             `).join('');
         }
 
-        function updateOrderStatus(orderId, newStatus) {
-            const o = orders.find(ord => ord.id === orderId);
+        function updateOrderStatus(orderId, status) {
+            const o = orders.find(x => x.id === orderId);
             if (o) {
-                o.status = newStatus;
-                saveOrdersState();
-                refreshAdminDashboard();
+                o.status = status;
+                saveOrders();
             }
         }
 
-        function openProductModal(prodId = null) {
-            const form = document.getElementById('productForm');
-            form.reset();
-
-            if (prodId) {
-                const p = products.find(item => item.id === prodId);
-                if (!p) return;
-
-                document.getElementById('productModalTitle').textContent = 'Edit Product Details';
-                document.getElementById('adminProdId').value = p.id;
-                document.getElementById('adminProdTitle').value = p.title;
-                document.getElementById('adminProdCategory').value = p.category;
-                document.getElementById('adminProdPrice').value = p.price;
-                document.getElementById('adminProdOriginalPrice').value = p.originalPrice || '';
-                document.getElementById('adminProdStock').value = p.stock;
-                document.getElementById('adminProdImage').value = p.image;
-                document.getElementById('adminProdSizes').value = p.sizes ? p.sizes.join(', ') : '';
-                document.getElementById('adminProdColors').value = p.colors ? p.colors.join(', ') : '';
-                document.getElementById('adminProdTag').value = p.tag || '';
-                document.getElementById('adminProdDesc').value = p.description;
-            } else {
-                document.getElementById('productModalTitle').textContent = 'Add New Inventory Product';
-                document.getElementById('adminProdId').value = '';
-            }
-
-            openModal('productModal');
-        }
-
-        function handleSaveProduct(e) {
-            e.preventDefault();
-            const id = document.getElementById('adminProdId').value;
-            const title = document.getElementById('adminProdTitle').value;
-            const category = document.getElementById('adminProdCategory').value;
-            const price = parseFloat(document.getElementById('adminProdPrice').value);
-            const originalPrice = parseFloat(document.getElementById('adminProdOriginalPrice').value) || 0;
-            const stock = parseInt(document.getElementById('adminProdStock').value);
-            const image = document.getElementById('adminProdImage').value;
-            const sizes = document.getElementById('adminProdSizes').value.split(',').map(s => s.trim()).filter(Boolean);
-            const colors = document.getElementById('adminProdColors').value.split(',').map(c => c.trim()).filter(Boolean);
-            const tag = document.getElementById('adminProdTag').value;
-            const description = document.getElementById('adminProdDesc').value;
-
-            if (id) {
-                // Edit existing
-                const index = products.findIndex(p => p.id === id);
-                if (index > -1) {
-                    products[index] = { id, title, category, price, originalPrice, stock, image, sizes, colors, tag, description };
-                }
-            } else {
-                // Add new
-                const newProd = {
-                    id: 'prod_' + Date.now(),
-                    title, category, price, originalPrice, stock, image, sizes, colors, tag, description
-                };
-                products.unshift(newProd);
-            }
-
-            saveProductsState();
-            closeModal('productModal');
-            renderProducts();
-            refreshAdminDashboard();
-        }
-
-        function deleteProduct(id) {
-            if (confirm('Are you sure you want to remove this product from store catalog?')) {
-                products = products.filter(p => p.id !== id);
-                saveProductsState();
-                renderProducts();
-                refreshAdminDashboard();
-            }
-        }
-
-        // Modal Utility Helpers
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-            if (id === 'cartModal') renderCartModal();
-            if (id === 'wishlistModal') renderWishlistModal();
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
+        // Modal Utilities
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
     </script>
 </body>
 </html>
