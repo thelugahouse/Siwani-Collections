@@ -57,6 +57,9 @@
                     <span>Free Home Delivery across Nepal on orders above NPR 3,000!</span>
                 </p>
                 <div class="flex items-center gap-4 text-xs">
+                    <a href="https://www.facebook.com/photo/?fbid=122104455561474705&set=a.122104439337474705" target="_blank" class="hover:underline flex items-center gap-1 font-semibold">
+                        <i class="fab fa-facebook text-blue-300"></i> Facebook Page
+                    </a>
                     <a href="https://wa.me/9779860652882" target="_blank" class="hover:underline flex items-center gap-1 font-semibold">
                         <i class="fab font-bold fa-whatsapp text-emerald-400"></i> WhatsApp: +977 9860652882
                     </a>
@@ -363,6 +366,9 @@
                 <p class="text-gray-400 leading-relaxed">
                     Siwani Collections - Providing top quality fashion wear across Nepal with Cash on Delivery and direct customer assistance.
                 </p>
+                <a href="https://www.facebook.com/photo/?fbid=122104455561474705&set=a.122104439337474705" target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:underline pt-2">
+                    <i class="fab fa-facebook text-base"></i> Follow us on Facebook
+                </a>
             </div>
             <div>
                 <h4 class="text-white font-semibold mb-3 uppercase text-[11px] tracking-wider">Quick Navigation</h4>
@@ -383,7 +389,7 @@
             </div>
             <div>
                 <h4 class="text-white font-semibold mb-3 uppercase text-[11px] tracking-wider">Contact Store</h4>
-                <p class="mb-1"><i class="fas fa-map-marker-alt text-brand-500 mr-2"></i> Main Market Road, Nepal</p>
+                <p class="mb-1"><i class="fas fa-map-marker-alt text-brand-500 mr-2"></i> Bhaktapur - nepal</p>
                 <p class="mb-1"><i class="fab fa-whatsapp text-emerald-500 mr-2"></i> +977 9860652882</p>
                 <p><i class="fas fa-envelope text-brand-500 mr-2"></i> info@lugahouse.com</p>
             </div>
@@ -393,39 +399,29 @@
         </div>
     </footer>
 
-    <!-- SECURITY MODAL: ADMIN ACCESS WHATSAPP OTP CHALLENGE -->
+    <!-- SECURITY MODAL: ADMIN ACCESS PASSWORD CHALLENGE -->
     <div id="otpModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-center">
             <button onclick="closeModal('otpModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
                 <i class="fas fa-times text-lg"></i>
             </button>
 
-            <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 border border-emerald-100">
-                <i class="fab fa-whatsapp"></i>
+            <div class="w-16 h-16 bg-slate-100 text-slate-800 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 border border-slate-200">
+                <i class="fas fa-lock"></i>
             </div>
 
-            <h3 class="text-xl font-extrabold text-gray-900">Admin Verification</h3>
-            <p class="text-xs text-gray-500 mt-1 mb-4">Send OTP verification code to registered WhatsApp number <strong class="text-gray-800">+977 9860652882</strong>.</p>
-
-            <div class="bg-slate-900 text-amber-400 p-3 rounded-xl text-xs font-mono mb-4 border border-slate-700 flex flex-col items-center justify-center gap-2">
-                <div class="flex justify-between w-full px-2">
-                    <span>Generated Security OTP:</span>
-                    <span id="demoOtpDisplay" class="font-extrabold text-sm tracking-widest text-white">------</span>
-                </div>
-                <a id="whatsappSendBtn" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 rounded-lg text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fab fa-whatsapp text-sm"></i> Send Security Code via WhatsApp
-                </a>
-            </div>
+            <h3 class="text-xl font-extrabold text-gray-900">Admin Authentication</h3>
+            <p class="text-xs text-gray-500 mt-1 mb-4">Please enter the security password to unlock the admin dashboard.</p>
 
             <form onsubmit="verifyOtpChallenge(event)" class="space-y-4">
                 <div>
-                    <input type="text" id="otpInput" maxlength="6" pattern="[0-9]{6}" required placeholder="Enter 6-digit WhatsApp OTP" 
-                        class="w-full text-center tracking-widest text-lg font-bold p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
+                    <input type="password" id="otpInput" required placeholder="Enter Admin Password" 
+                        class="w-full text-center tracking-widest text-base font-bold p-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-500 outline-none">
                 </div>
-                <p id="otpErrorMsg" class="text-rose-600 text-xs font-bold hidden">Invalid verification code. Please try again.</p>
+                <p id="otpErrorMsg" class="text-rose-600 text-xs font-bold hidden">Invalid password. Please try again.</p>
 
                 <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs shadow-md transition">
-                    Verify Code & Access Dashboard
+                    Unlock Dashboard
                 </button>
             </form>
         </div>
@@ -659,6 +655,7 @@
     <!-- JAVASCRIPT LOGIC & STATE MANAGEMENT -->
     <script>
         const WHATSAPP_NUMBER = "9779860652882";
+        const ADMIN_PASSWORD = "-!@#$%^&*())(*&^%$#@!";
 
         // Initial Mock Database
         const initialProducts = [
@@ -757,7 +754,6 @@
         let currentCategory = 'All';
         let logoClickCount = 0;
         let logoClickTimer = null;
-        let generatedOtp = '';
         let isAdminLoggedIn = false;
 
         // Save State Helpers
@@ -1160,7 +1156,7 @@
             }
         }
 
-        // ================= SECRET ADMIN LOGIC WITH WHATSAPP OTP =================
+        // ================= SECRET ADMIN LOGIC WITH PASSWORD =================
         function handleSecretLogoClick() {
             logoClickCount++;
             if (logoClickTimer) clearTimeout(logoClickTimer);
@@ -1174,14 +1170,6 @@
         }
 
         function triggerAdminAuthChallenge() {
-            // Generate random 6-digit OTP
-            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-            document.getElementById('demoOtpDisplay').textContent = generatedOtp;
-            
-            // Format WhatsApp OTP Link
-            const waText = encodeURIComponent(`[The Luga House Security] Your Admin Panel login OTP verification code is: ${generatedOtp}`);
-            document.getElementById('whatsappSendBtn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
-
             document.getElementById('otpInput').value = '';
             document.getElementById('otpErrorMsg').classList.add('hidden');
             openModal('otpModal');
@@ -1191,7 +1179,7 @@
             e.preventDefault();
             const input = document.getElementById('otpInput').value.trim();
 
-            if (input === generatedOtp || input === '999999') {
+            if (input === ADMIN_PASSWORD) {
                 isAdminLoggedIn = true;
                 closeModal('otpModal');
                 
