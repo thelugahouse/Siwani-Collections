@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#b87914" />
+  <meta name="description" content="The Luga House – Siwani Collections. Fashion for Men, Ladies, Kiddos and Accessories." />
+  <title>The Luga House – Siwani Collections</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <div class="announcement" id="announcement">✨ New arrivals • Order directly on WhatsApp</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top"><img src="assets/logo.png" alt="The Luga House – Siwani Collections"></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button>
+        <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">♡ <span id="wishCount">0</span></button>
+        <button class="cart-btn" id="cartBtn">Bag <span id="cartCount">0</span></button>
+      </div>
+    </div>
+    <div class="searchbar" id="searchbar"><div class="container"><input id="searchInput" placeholder="Search kurtha, dresses, accessories…" autocomplete="off"></div></div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="eyebrow">SIWANI COLLECTIONS</span>
+        <h1>Your style.<br><em>Your choice.</em><br>Your house.</h1>
+        <p>Curated fashion for Men, Ladies, Kiddos & Accessories — designed to make everyday dressing feel special.</p>
+        <div class="hero-actions"><a class="btn primary" href="#shop">Shop collection</a><a class="btn ghost" href="https://wa.me/9779868220779" target="_blank" rel="noopener">WhatsApp us</a></div>
+        <div class="trust-row"><span>✓ Easy WhatsApp ordering</span><span>✓ Fresh collections</span><span>✓ Local service</span></div>
+      </div>
+      <div class="hero-art"><img src="assets/brand-mark.png" alt="Siwani Collections brand artwork"><div class="floating-card"><b>Shop direct</b><span>9868220779</span></div></div>
+    </section>
+
+    <section id="categories" class="container section">
+      <div class="section-head"><div><span class="eyebrow">EXPLORE</span><h2>Shop by category</h2></div><span class="live-dot">● Live catalogue</span></div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section id="shop" class="container section">
+      <div class="section-head"><div><span class="eyebrow">THE COLLECTION</span><h2>Latest pieces</h2></div><div class="filters"><select id="categoryFilter"><option value="all">All categories</option></select><select id="sortFilter"><option value="featured">Featured</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="newest">Newest</option></select></div></div>
+      <div class="product-grid" id="productGrid"><div class="loading">Loading collection…</div></div>
+    </section>
+
+    <section class="promo-band"><div class="container promo-inner"><div><span class="eyebrow">ORDERING MADE SIMPLE</span><h2>See it. Love it. WhatsApp it.</h2><p>Send your cart directly to <b>9868220779</b> and our team will confirm your order.</p></div><a class="btn light" href="https://wa.me/9779868220779?text=Hello%20The%20Luga%20House%2C%20I%20would%20like%20to%20shop." target="_blank" rel="noopener">Start WhatsApp order →</a></div></section>
+
+    <section id="about" class="container section about"><div class="about-card"><div><span class="eyebrow">THE LUGA HOUSE</span><h2>Fashion with a house feel.</h2><p>Siwani Collections brings together elegant traditional wear, contemporary clothing and finishing accessories under one roof. Your catalogue is managed live from the admin panel, so customers see updates without waiting for a new website version.</p></div><div class="about-stats"><div><strong>4+</strong><span>Collections</span></div><div><strong>24/7</strong><span>Online catalogue</span></div><div><strong>1 tap</strong><span>WhatsApp checkout</span></div></div></div></section>
+
+    <section id="contact" class="container section contact"><div><span class="eyebrow">CONNECT</span><h2>Follow Siwani Collections</h2><p>Use the social links configured by your admin team.</p></div><div class="socials" id="socials"></div></section>
+  </main>
+
+  <footer><div class="container footer-inner"><div class="footer-brand"><img src="assets/logo.png" alt="The Luga House"><p>Your Style. Your Choice. Your House.</p></div><div><b>Quick links</b><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#about">About</a></div><div><b>Order</b><a href="https://wa.me/9779868220779" target="_blank" rel="noopener">WhatsApp: 9868220779</a><a href="admin.html">Admin panel</a></div></div><div class="copyright">© <span id="year"></span> The Luga House – Siwani Collections. All rights reserved.</div></footer>
+
+  <aside class="drawer" id="cartDrawer" aria-hidden="true"><div class="drawer-head"><h3>Your bag</h3><button class="close" id="closeCart">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-foot"><div><span>Subtotal</span><strong id="cartTotal">NPR 0</strong></div><button class="btn primary full" id="checkoutBtn">Order on WhatsApp</button><button class="btn ghost full" id="clearCart">Clear bag</button></div></aside><div class="overlay" id="overlay"></div>
+
+  <dialog id="productDialog" class="product-dialog"><button class="close dialog-close" id="dialogClose">×</button><div id="dialogContent"></div></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script>
+</body></html>
